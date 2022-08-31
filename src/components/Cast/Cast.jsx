@@ -29,9 +29,13 @@ export const Cast = () => {
       {fetchedData?.cast.map(({ id, name, character, profile_path }) => (
         <div key={id}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+            src={
+              profile_path === null
+                ? `https://via.placeholder.com/64x96`
+                : `https://image.tmdb.org/t/p/w500${profile_path}`
+            }
             alt={fetchedData.cast.id}
-            width="320"
+            width="64"
           />
           <p>{name}</p> <p>character: {character} </p>
         </div>

@@ -36,5 +36,14 @@ export const Reviews = () => {
     })();
   }, [id]);
 
-  return <div>Reviews</div>;
+  return (
+    <div>
+      {fetchedData?.results.map(({ author, content }) => (
+        <div key={author}>
+          <h3>{author}</h3>
+          <p>{content}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
