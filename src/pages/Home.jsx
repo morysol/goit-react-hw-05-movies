@@ -16,7 +16,7 @@ export const Home = () => {
       } catch (error) {
         // handle error
         setFetchedError(`  ${error.message}  `);
-        console.log(error);
+        // console.log(error);
       }
     })();
   }, []);
