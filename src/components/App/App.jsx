@@ -7,28 +7,19 @@ import { Cast } from 'components/Cast/Cast';
 import { Reviews } from 'components/Reviews/Reviews';
 import { NotFound } from '../../pages/NotFound';
 //
-import styled from '@emotion/styled';
+import * as SC from './App.styled';
+
 //
-const StyledNav = styled('nav')`
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-`;
-//
-const StyledHeader = styled('header')`
-  background-color: lightgray;
-  padding: 8px 16px;
-`;
 
 export const App = () => {
   return (
     <>
-      <StyledHeader>
-        <StyledNav>
+      <SC.StyledHeader>
+        <SC.StyledNav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/movies">Movies</NavLink>
-        </StyledNav>
-      </StyledHeader>
+        </SC.StyledNav>
+      </SC.StyledHeader>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
