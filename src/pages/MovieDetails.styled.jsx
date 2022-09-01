@@ -8,5 +8,8 @@ export const Container = styled('div')`
 `;
 
 export const Info = styled('div')`
+  /* padding: 'space[5]';
+  background-color: 'primary'; */
   padding: 16px;
+  background-color: '#07c';
 `;

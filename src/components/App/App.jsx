@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 //
 import { Home } from '../../pages/Home';
 import { Movies } from '../../pages/Movies';
@@ -9,6 +8,7 @@ import { Reviews } from 'components/Reviews/Reviews';
 import { NotFound } from '../../pages/NotFound';
 //
 import styled from '@emotion/styled';
+//
 const StyledNav = styled('nav')`
   display: flex;
   justify-content: center;

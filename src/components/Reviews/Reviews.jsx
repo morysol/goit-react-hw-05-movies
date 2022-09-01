@@ -44,6 +44,8 @@ export const Reviews = () => {
           <p>{content}</p>
         </div>
       ))}
+      {fetchedData?.results.length === 0 && <p>Еще не написали</p>}
+      {fetchedError && <p>{fetchedError}</p>}
     </div>
   );
 };

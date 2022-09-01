@@ -11,13 +11,13 @@ export const SearchForm = ({ onSubmit }) => {
     handleSubmit,
     reset,
     // watch,
-    formState: { errors, isSubmitSuccessful },
+    // formState: { errors, isSubmitSuccessful },
   } = useForm();
 
   useEffect(() => {
     //
     reset();
-  }, [reset, isSubmitSuccessful]);
+  }, [reset]);
 
   // const onSubmit = data => console.log(data);
 

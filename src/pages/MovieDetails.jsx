@@ -65,7 +65,7 @@ export const MovieDetails = () => {
                 <NavLink to="cast">Актерский состав</NavLink>
               </div>
               <div>
-                <NavLink to="reviews">Review</NavLink>
+                <NavLink to="reviews">Отзывы зрителей</NavLink>
               </div>
             </div>
           </SC.Container>
