@@ -60,15 +60,15 @@ export const MovieDetails = () => {
               <h2>Жанры</h2>
               <p>{fetchedData.genres.map(({ name }) => name).join(' ')}</p>
             </SC.Info>
-            <div>
-              <div>
-                <NavLink to="cast">Актерский состав</NavLink>
-              </div>
-              <div>
-                <NavLink to="reviews">Отзывы зрителей</NavLink>
-              </div>
-            </div>
           </SC.Container>
+          <div>
+            <div>
+              <NavLink to="cast">Актерский состав</NavLink>
+            </div>
+            <div>
+              <NavLink to="reviews">Отзывы зрителей</NavLink>
+            </div>
+          </div>
           <Outlet />
         </>
       )}

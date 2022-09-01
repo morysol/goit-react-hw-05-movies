@@ -40,6 +40,7 @@ export const Cast = () => {
           <p>{name}</p> <p>character: {character} </p>
         </div>
       ))}
+      {fetchedError && <p>{fetchedError}</p>}
     </div>
   );
 };

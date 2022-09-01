@@ -52,4 +52,5 @@ export const theme = createTheme({
       main: red[500],
     },
   },
+  spacing: [0, 4, 8, 16, 32, 64],
 });
