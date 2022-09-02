@@ -1,4 +1,5 @@
 import { useLocation, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 //
 import { MoviesContainer } from './MoviesList.styled';
 export const MoviesList = ({ movies }) => {
@@ -15,4 +16,13 @@ export const MoviesList = ({ movies }) => {
       ))}
     </MoviesContainer>
   );
+};
+
+MoviesList.propTypes = {
+  requiredArray: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired
+  ),
 };
