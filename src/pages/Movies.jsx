@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 //
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { getMoviesList } from 'api/api';
@@ -8,6 +10,9 @@ export const Movies = () => {
   const [searchString, setSearchString] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedError, setFetchedError] = useState(null);
+
+  const location = useLocation();
+  // console.log('movies page  ', location);
 
   useEffect(() => {
     //
@@ -43,7 +48,9 @@ export const Movies = () => {
       <div>
         <SearchForm onSubmit={onSubmit} />
 
-        {fetchedData?.length > 0 && <MoviesList movies={fetchedData} />}
+        {fetchedData?.length > 0 && (
+          <MoviesList movies={fetchedData} state={{ from: location }} />
+        )}
         {fetchedError && <p> There is an fetch error {fetchedError} </p>}
       </div>
     </main>

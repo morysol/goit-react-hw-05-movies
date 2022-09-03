@@ -1,6 +1,7 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 //
 import { getMoviesInfo } from 'api/api';
 // import { Container } from './MovieDetails.styled';
@@ -11,6 +12,9 @@ export const MovieDetails = () => {
 
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedError, setFetchedError] = useState(null);
+
+  const location = useLocation();
+  // console.log('details .....', location);
 
   useEffect(() => {
     //
@@ -31,13 +35,12 @@ export const MovieDetails = () => {
     })();
   }, [id]);
 
+  // console.log('  where to back  ', location.state);
   return (
     <main>
       {fetchedData && (
         <>
-          <div>
-            <button>go back</button>
-          </div>
+          <NavLink to={location.state?.from ?? '/'}> go back</NavLink>
           <SC.Container>
             <div>
               <img
