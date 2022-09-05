@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 //
 import { SearchForm } from 'components/SearchForm/SearchForm';
@@ -7,9 +8,14 @@ import { getMoviesList } from 'api/api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const Movies = () => {
-  const [searchString, setSearchString] = useState(null);
+  // const [searchString, setSearchString] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedError, setFetchedError] = useState(null);
+  //
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
+
+  // console.log('query  ', query);
 
   const location = useLocation();
   // console.log('movies page  ', location);
@@ -18,10 +24,11 @@ export const Movies = () => {
     //
 
     (async function () {
-      if (searchString === null) return;
+      // if (searchString === null) return;
+      if (!query) return;
       try {
         // handle success
-        const respone = await getMoviesList({ query: searchString });
+        const respone = await getMoviesList({ query });
         setFetchedData(respone.data.results);
         setFetchedError(null);
         // return axios.get(queryString);
@@ -32,7 +39,7 @@ export const Movies = () => {
         // return `error with your query ${error} `;
       }
     })();
-  }, [searchString]);
+  }, [query, searchParams]);
 
   const onSubmit = (data, e) => {
     e.preventDefault();
@@ -40,7 +47,8 @@ export const Movies = () => {
 
     // console.log(data);
     // console.log(e);
-    setSearchString(data.searchString);
+    // setSearchString(data.searchString);
+    setSearchParams({ query: data.searchString });
     // debugger;
   };
   return (

@@ -14,7 +14,8 @@ export const MovieDetails = () => {
   const [fetchedError, setFetchedError] = useState(null);
 
   const location = useLocation();
-  // console.log('details .....', location);
+  console.log('details .....', location);
+  const { state } = location;
 
   useEffect(() => {
     //
@@ -66,10 +67,14 @@ export const MovieDetails = () => {
           </SC.Container>
           <div>
             <div>
-              <NavLink to="cast">Актерский состав</NavLink>
+              <NavLink to="cast" state={state}>
+                Актерский состав
+              </NavLink>
             </div>
             <div>
-              <NavLink to="reviews">Отзывы зрителей</NavLink>
+              <NavLink to="reviews" state={state}>
+                Отзывы зрителей
+              </NavLink>
             </div>
           </div>
           <Outlet />
