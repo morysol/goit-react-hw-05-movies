@@ -10,7 +10,7 @@ import { theme } from './Theme/Theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/goit-react-hw-05-movies/">
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
