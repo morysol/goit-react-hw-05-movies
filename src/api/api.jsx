@@ -27,7 +27,7 @@ export const getMoviesList = params => {
   } = params;
 
   // search
-  const queryString = `search/movie/?api_key=${API_KEY}&query=${query}&page=${page}&language=${language}include_adult=${include_adult}`;
+  const queryString = `search/movie?api_key=${API_KEY}&query=${query}&page=${page}&language=${language}include_adult=${include_adult}`;
 
   return axios.get(queryString);
 };
