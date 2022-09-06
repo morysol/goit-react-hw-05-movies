@@ -15,10 +15,11 @@ import styled from '@emotion/styled';
 export const StyledNav = styled('nav')`
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: ${props => props.theme.spacing(5)}; ;
 `;
 //
 export const StyledHeader = styled('header')`
   background-color: lightgray;
-  padding: 8px 16px;
+  /* padding: 8px 16px; */
+  padding: ${props => props.theme.spacing(3, 4)};
 `;

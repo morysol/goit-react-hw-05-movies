@@ -2,6 +2,8 @@ import { Outlet, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 //
 import { getMoviesInfo } from 'api/api';
 // import { Container } from './MovieDetails.styled';
@@ -14,7 +16,7 @@ export const MovieDetails = () => {
   const [fetchedError, setFetchedError] = useState(null);
 
   const location = useLocation();
-  console.log('details .....', location);
+  // console.log('details .....', location);
   const { state } = location;
 
   useEffect(() => {
@@ -41,7 +43,10 @@ export const MovieDetails = () => {
     <main>
       {fetchedData && (
         <>
-          <NavLink to={location.state?.from ?? '/'}> go back</NavLink>
+          <SC.GoBack to={location.state?.from ?? '/'}>
+            <ArrowBackIcon fontSize="large" />
+            Go back
+          </SC.GoBack>
           <SC.Container>
             <div>
               <img

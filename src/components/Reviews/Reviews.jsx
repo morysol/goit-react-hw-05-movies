@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Box } from '@mui/system';
 
 import { getMoviesReview } from 'api/api';
 
@@ -37,7 +38,7 @@ export const Reviews = () => {
   }, [id]);
 
   return (
-    <div>
+    <Box padding="16px">
       {fetchedData?.results.map(({ author, content }) => (
         <div key={author}>
           <h3>{author}</h3>
@@ -46,6 +47,6 @@ export const Reviews = () => {
       ))}
       {fetchedData?.results.length === 0 && <p>Еще не написали</p>}
       {fetchedError && <p>{fetchedError}</p>}
-    </div>
+    </Box>
   );
 };

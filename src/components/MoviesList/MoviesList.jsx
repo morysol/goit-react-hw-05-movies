@@ -2,24 +2,31 @@ import { NavLink } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 //
-import { MoviesContainer } from './MoviesList.styled';
+import * as SC from './MoviesList.styled';
 export const MoviesList = ({ movies, state }) => {
   // const linkTo = location.pathname === '/' ? 'movies/' : '';
 
   return (
-    <MoviesContainer>
-      {movies.map(({ id, title }) => (
+    <SC.MoviesContainer>
+      {movies.map(({ id, title, poster_path }) => (
         <li key={id}>
-          {/* <NavLink to={`${linkTo}${id}`}>{title}</NavLink> */}
-          {/* <NavLink to={`/movies/${id}`} state={{ from: location }}>
-            {title}
-          </NavLink> */}
-          <NavLink to={`/movies/${id}`} state={state}>
-            {title}
-          </NavLink>
+          <SC.MovieThumb>
+            <img
+              src={
+                poster_path === null
+                  ? `https://via.placeholder.com/64x96`
+                  : `https://image.tmdb.org/t/p/w500${poster_path}`
+              }
+              alt={title}
+              width="64"
+            />
+            <NavLink to={`/movies/${id}`} state={state}>
+              {title}
+            </NavLink>
+          </SC.MovieThumb>
         </li>
       ))}
-    </MoviesContainer>
+    </SC.MoviesContainer>
   );
 };
 

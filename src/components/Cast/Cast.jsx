@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Box } from '@mui/system';
 
 import { getMoviesCast } from 'api/api';
 
@@ -25,7 +26,7 @@ export const Cast = () => {
   }, [id]);
 
   return (
-    <div>
+    <Box padding="16px">
       {fetchedData?.cast.map(({ id, name, character, profile_path }) => (
         <div key={id}>
           <img
@@ -41,6 +42,6 @@ export const Cast = () => {
         </div>
       ))}
       {fetchedError && <p>{fetchedError}</p>}
-    </div>
+    </Box>
   );
 };
