@@ -89,8 +89,3 @@ export const MovieDetails = () => {
     </main>
   );
 };
-
-// Addition iformation
-//
-// * Cast  // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
-// * Review

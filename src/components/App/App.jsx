@@ -14,12 +14,18 @@ import { NotFound } from '../../pages/NotFound';
 
 const createAsyncComponent = path => {
   // console.log(path);
-  // console.log(path === '../SharedLayout/SharedLayout');
+  console.log(path === '../SharedLayout/SharedLayout');
   const componentName = path.match(/[a-zA-Z]+$/)[0];
 
   return lazy(() =>
-    // import(`${path}`)
-    import('../SharedLayout/SharedLayout')
+    // import(path)
+    // import('../SharedLayout/SharedLayout')
+    import(`../SharedLayout/SharedLayout`)
+      // import(`${path}`)
+      .then(r => {
+        console.log(r);
+        return r;
+      })
       .then(module => ({ ...module, default: module[componentName] }))
       .catch(console.log)
   );
