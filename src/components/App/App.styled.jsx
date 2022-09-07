@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import { theme } from './Theme/Theme';
 
 // todo styles emotion ore styled ????
 
@@ -20,6 +19,5 @@ export const StyledNav = styled('nav')`
 //
 export const StyledHeader = styled('header')`
   background-color: lightgray;
-  /* padding: 8px 16px; */
   padding: ${props => props.theme.spacing(3, 4)};
 `;

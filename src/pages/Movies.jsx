@@ -8,23 +8,18 @@ import { getMoviesList } from 'api/api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const Movies = () => {
-  // const [searchString, setSearchString] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedError, setFetchedError] = useState(null);
   //
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
-  // console.log('query  ', query);
-
   const location = useLocation();
-  // console.log('movies page  ', location);
 
   useEffect(() => {
     //
 
     (async function () {
-      // if (searchString === null) return;
       if (!query) return;
       try {
         // handle success
@@ -43,13 +38,8 @@ export const Movies = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    // console.log(`\u001b[35m  <<<  >>> \x1b[0m  `);
 
-    // console.log(data);
-    // console.log(e);
-    // setSearchString(data.searchString);
     setSearchParams({ query: data.searchString });
-    // debugger;
   };
   return (
     <main>
