@@ -15,13 +15,8 @@ import { NotFound } from '../../pages/NotFound';
 const createAsyncComponent = path => {
   // console.log(path);
   // console.log(path === '../SharedLayout/SharedLayout');
-
   const componentName = path.match(/[a-zA-Z]+$/)[0];
-  // return lazy(() =>
-  //   import(path)
-  //     .then(module => ({ ...module, default: module[componentName] }))
-  //     .catch(console.log)
-  // );
+
   return lazy(() =>
     // import(`${path}`)
     import('../SharedLayout/SharedLayout')
@@ -50,9 +45,3 @@ export const App = () => {
     </>
   );
 };
-
-// '/' - компонент Home, домашняя страница со списком популярных кинофильмов.
-// '/movies' - компонент Movies, страница поиска фильмов по ключевому слову.
-// '/movies/:movieId' - компонент MovieDetails, страница с детальной информацией о кинофильме.
-// /movies/:movieId/cast - компонент Cast, информация о актерском составе. Рендерится на странице MovieDetails.
-// /movies/:movieId/reviews - компонент Reviews, информация об обзорах. Рендерится на странице MovieDetails.

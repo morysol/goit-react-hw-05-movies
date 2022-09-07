@@ -9,7 +9,6 @@ export const Home = () => {
   const [fetchedError, setFetchedError] = useState(null);
 
   const location = useLocation();
-  // console.log('home page  ', location.pathname);
 
   useEffect(() => {
     //
@@ -17,7 +16,13 @@ export const Home = () => {
       try {
         // handle success
         const respone = await getTrendigsList();
-        setFetchedData(respone.data.results);
+        setFetchedData(
+          respone.data.results.map(({ id, title, poster_path }) => ({
+            id,
+            title,
+            poster_path,
+          }))
+        );
       } catch (error) {
         // handle error
         setFetchedError(`  ${error.message}  `);
